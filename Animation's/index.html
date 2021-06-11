@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Generator" content="EditPlus®">
+        <meta name="Author" content="">
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2><span>Uzair Shaikh</span><br>Anime</h2>       
+        </div>
+
+        <script src="anime.min.js"></script>
+        <script>
+            const container = document.querySelector('.container')
+            for (var i = 0; i <= 100; i++){
+                const blocks = document.createElement('div');
+                blocks.classList.add('block');
+                container.appendChild(blocks);
+            }
+
+            function animateBlocks(){
+                anime({
+                    targets: '.block',
+                    translateX: function(){
+                        return anime.random(-700,700);
+                    },
+                    translateY: function(){
+                        return anime.random(-500,500);
+                    },
+                    scale: function(){
+                        return anime.random(1,-5);
+                    },
+
+                    easing: 'linear',
+                    duration: 3000,
+                    delay: anime.stagger(10),
+                    complete: animateBlocks,
+
+                })
+            }
+
+            animateBlocks()
+        </script>    
+    </body>
+</html>
